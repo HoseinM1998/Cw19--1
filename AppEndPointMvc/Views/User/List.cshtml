@@ -1,0 +1,62 @@
+﻿@model List<AppDomainCore.Entities.User>
+
+@{
+    ViewBag.Title = "لیست کاربران";
+}
+
+
+<form method="get" action="@Url.Action("Search", "User")">
+    <div class="form-inline mb-3">
+        <input type="text" name="search" class="form-control" placeholder="جستجو" />
+        <button type="submit" class="btn btn-dark">جستجو</button>
+    </div>
+</form>
+
+
+<h2>لیست کاربران</h2>
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>ایدی</th>
+            <th>نام</th>
+            <th>نام خانوادگی</th>
+            <th>تاریخ تولد</th>
+            <th>تلفن</th>
+            <th>کد ملی</th>
+            <th>نوع عضویت</th>
+            <th>جنسیت</th>
+            <th>تاریخ عضویت</th>
+            <th>تنظیمات</th>
+
+
+
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null )
+        {
+            foreach (var user in Model)
+            {
+                <tr>
+                    <td>@user.Id</td>
+                    <td>@user.FirstName</td>
+                    <td>@user.LastName</td>
+                    <td>@user.BirthDay.ToString("yyyy/MM/dd")</td>
+                    <td>@user.Phone</td>
+                    <td>@user.NationalCode</td>
+                    <td>@user.MembershipType</td>
+                    <td>@user.Gender</td>
+                    <td>@user.CreateAt.ToString("yyyy/MM/dd")</td>
+                    <td>
+                        <a href="@Url.Action("Update", "User", new { id = user.Id })" class="btn btn-dark btn-sm">ویرایش</a>
+                        <a href="@Url.Action("Delete", "User", new { id = user.Id })" class="btn btn-dark btn-sm">حذف</a>
+                        <a href="@Url.Action("Profile", "User", new { id = user.Id })" class="btn btn-dark btn-sm">پروفایل</a>
+
+                    </td>
+                </tr>
+
+            }
+        }
+    </tbody>
+</table>
+

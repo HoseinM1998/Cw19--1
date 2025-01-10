@@ -1,0 +1,44 @@
+﻿@model AppDomainCore.Entities.User
+
+@{
+    ViewBag.Title = "پروفایل";
+}
+
+
+<h2>مشخصات کاربر</h2>
+<table class="table table-bordered table-striped">
+    <thead>
+    <tr>
+        <th>ایدی</th>
+        <th>نام</th>
+        <th>نام خانوادگی</th>
+        <th>تاریخ تولد</th>
+        <th>تلفن</th>
+        <th>کد ملی</th>
+        <th>نوع عضویت</th>
+        <th>جنسیت</th>
+        <th>تاریخ عضویت</th>
+
+
+
+    </tr>
+    </thead>
+    <tbody>
+    @if (Model != null )
+    {
+            <tr>
+                <td>@Model.Id</td>
+                <td>@Model.FirstName</td>
+                <td>@Model.LastName</td>
+                <td>@Model.BirthDay.ToString("yyyy/MM/dd")</td>
+                <td>@Model.Phone</td>
+                <td>@Model.NationalCode</td>
+                <td>@Model.MembershipType</td>
+                <td>@Model.Gender</td>
+                <td>@Model.CreateAt.ToString("yyyy/MM/dd")</td>
+            </tr>
+
+        }
+    }
+    </tbody>
+</table>

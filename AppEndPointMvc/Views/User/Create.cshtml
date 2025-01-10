@@ -1,0 +1,63 @@
+﻿@model AppDomainCore.Entities.User
+
+<h2>ایجاد کاربر جدید</h2>
+
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label for="FirstName">نام</label>
+        <input type="text" id="FirstName" asp-for="FirstName" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label for="LastName">نام خانوادگی</label>
+        <input type="text" id="LastName" asp-for="LastName" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label for="Phone">تلفن</label>
+        <input type="text" id="Phone" asp-for="Phone" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label for="NationalCode">کد ملی</label>
+        <input type="text" id="NationalCode" asp-for="NationalCode" class="form-control" />
+    </div>
+    
+    <div class="form-group">
+        <label for="BirthDay">تاریخ تولد</label>
+        <input type="date" id="BirthDay" asp-for="BirthDay" class="form-control" />
+    </div>
+
+
+    <div class="form-group">
+        <label for="Gender">جنسیت</label>
+        <div>
+            <input type="radio" id="Male" asp-for="Gender" value="Man" />
+            <label for="Male">مرد</label>
+        </div>
+        <div>
+            <input type="radio" id="Female" asp-for="Gender" value="Female" />
+            <label for="Female">زن</label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="MembershipType">نوع عضویت</label>
+        <div>
+            <input type="radio" id="Gold" asp-for="MembershipType" value="@AppDomainCore.Enum.MembershipTypeEnum.Gold" />
+            <label for="Gold">طلایی</label>
+        </div>
+        <div>
+            <input type="radio" id="Silver" asp-for="MembershipType" value="@AppDomainCore.Enum.MembershipTypeEnum.Silver" />
+            <label for="Silver">نقره‌ای</label>
+        </div>
+        <div>
+            <input type="radio" id="Bronze" asp-for="MembershipType" value="@AppDomainCore.Enum.MembershipTypeEnum.Bronze" />
+            <label for="Bronze">برنزی</label>
+        </div>
+    </div>
+
+
+    <button type="submit" class="btn btn-primary">ذخیره</button>
+    <a href="@Url.Action("List", "User")" class="btn btn-secondary">لغو</a>
+</form>
