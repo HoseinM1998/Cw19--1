@@ -42,12 +42,12 @@ namespace AppInfraDataAccessEf.Repository
             }
         }
 
-        public User GetById(int id)
+        public User? GetById(int id)
         {
             return _context.Users.AsNoTracking().FirstOrDefault(u => u.Id == id);
         }
 
-        public User GetBYNationalCode(string nationalCode)
+        public User? GetBYNationalCode(string nationalCode)
         {
             return _context.Users.AsNoTracking().FirstOrDefault(u => u.NationalCode == nationalCode);
         }

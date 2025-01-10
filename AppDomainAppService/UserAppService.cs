@@ -15,19 +15,6 @@ namespace AppDomainAppService
         {
             try
             {
-                var user = new User
-                {
-                    FirstName = newUser.FirstName,
-                    LastName = newUser.LastName,
-                    Phone = newUser.Phone,
-                    NationalCode = newUser.NationalCode,
-                    Gender = newUser.Gender,
-                    MembershipType = newUser.MembershipType,
-                    BirthDay = newUser.BirthDay,
-                    CreateAt = newUser.CreateAt,
-                    
-
-                };
                 newUser.CreateAt= DateTime.Now;
                 _service.Add(newUser);
             }

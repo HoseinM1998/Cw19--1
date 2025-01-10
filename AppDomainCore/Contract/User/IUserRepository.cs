@@ -11,8 +11,8 @@ namespace AppDomainCore.Contract.User
         public void Add(Entities.User user);
         public void Update(Entities.User user);
         public void Delete(int id);
-        public Entities.User GetById(int id);
-        public Entities.User GetBYNationalCode(string nationalCode);
+        public Entities.User? GetById(int id);
+        public Entities.User? GetBYNationalCode(string nationalCode);
         public List<Entities.User> GetAll();
         public List<Entities.User> Search(string search);
     }

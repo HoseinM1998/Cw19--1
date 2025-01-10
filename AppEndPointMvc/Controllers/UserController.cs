@@ -37,8 +37,8 @@ namespace AppEndPointMvc.Controllers
         {
             try
             {
-                TempData["SuccessMessage"] = "کاربر با موفقیت ایجاد شد";
                 _userAppService.Create(newUser);
+                TempData["SuccessMessage"] = "کاربر با موفقیت ایجاد شد";
                 return RedirectToAction("List");
             }
             catch (Exception ex)
@@ -71,8 +71,8 @@ namespace AppEndPointMvc.Controllers
 
             try
             {
-                TempData["SuccessMessage"] = "کاربر با موفقیت آپدیت شد";
                 _userAppService.Update(id, updatedUser);
+                TempData["SuccessMessage"] = "کاربر با موفقیت آپدیت شد";
                 return RedirectToAction("List");
             }
             catch (Exception ex)
@@ -103,8 +103,8 @@ namespace AppEndPointMvc.Controllers
         {
             try
             {
-                TempData["SuccessMessage"] = "کاربر با موفقیت حذف شد";
                 _userAppService.Delete(id);
+                TempData["SuccessMessage"] = "کاربر با موفقیت حذف شد";
                 return RedirectToAction("List");
             }
             catch (Exception ex)
@@ -120,6 +120,11 @@ namespace AppEndPointMvc.Controllers
         [HttpGet]
         public IActionResult Search(string search)
         {
+            if (search == null)
+            {
+                ViewBag.ErrorMessage = "خطا";
+                return View("List");
+            }
             try
             {
                 var users = _userAppService.Search(search);  

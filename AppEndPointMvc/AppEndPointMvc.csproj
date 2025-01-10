@@ -12,8 +12,6 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="PersianDate" Version="3.5.5" />
-    <PackageReference Include="PersianDateTime" Version="1.1.5082.36395" />
   </ItemGroup>
 
   <ItemGroup>
